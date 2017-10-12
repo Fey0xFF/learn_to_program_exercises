@@ -1,13 +1,13 @@
 $nestdepth = 0
-$nestspace = " "
+$nestspace = "  "
 
 def log blockdesc, &block
   puts "#{$nestspace*$nestdepth}Starting \"#{blockdesc}\"..."
   $nestdepth += 1
   blockval = block.call
   $nestdepth -= 1
-  puts "#{$nestspace*$nestdepth}..."
-  puts "\"#{blockdesc}\" finished returning: #{$nestspace*$nestdepth}#{blockval}"
+  puts "..."
+  puts "\"#{blockdesc}\" finished returning: #{blockval}"
 end
 
 log "outer block" do
@@ -21,12 +21,17 @@ log "outer block" do
       log "one more" do
         log "how deep" do
           log "does this" do
-            log "rabbit hole" do
-              "Go..."
+            log "rabbit hole go..." do
+              false
             end
+            false
           end
+          false
         end
+        false
       end
+      false
     end
-  false
+    false
+  ".........................................................Wake up, Neo."
 end
